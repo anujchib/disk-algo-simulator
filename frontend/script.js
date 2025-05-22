@@ -1,4 +1,4 @@
-const BASE_URL = 'https://your-railway-backend.up.railway.app'; // <- CHANGE THIS!
+const BASE_URL = 'https://disk-algo-simulator-b-production.up.railway.app'; // <- CHANGE THIS!
 
 const form = document.getElementById('scheduler-form');
 const chartCanvas = document.getElementById('seek-chart');
