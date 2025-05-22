@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Disk Scheduling Visualizer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Disk Scheduling Visualizer</h1>
+    <form id="scheduler-form">
+      <label for="requests">Disk Requests (comma-separated):</label>
+      <input type="text" id="requests" placeholder="e.g. 82,170,43,140,24,16,190" required>
+
+      <label for="head">Initial Head Position:</label>
+      <input type="number" id="head" required>
+
+      <label for="cylinders">Total Cylinders:</label>
+      <input type="number" id="cylinders" required>
+
+      <label for="algorithm">Algorithm:</label>
+      <select id="algorithm">
+        <option>FCFS</option>
+        <option>SSTF</option>
+        <option>SCAN</option>
+        <option>LOOK</option>
+        <option>C-SCAN</option>
+        <option>C-LOOK</option>
+      </select>
+
+      <div id="direction-container" style="display:none;">
+        <label for="direction">Direction:</label>
+        <select id="direction">
+          <option value="left">Left</option>
+          <option value="right">Right</option>
+        </select>
+      </div>
+
+      <button type="submit">Visualize</button>
+      <button type="button" id="compare-btn">Compare All</button>
+    </form>
+
+    <div id="result">
+      <h2>Seek Time: <span id="seek-time"></span></h2>
+      <div class="chart-container">
+        <canvas id="seek-chart"></canvas>
+      </div>
+      <div>
+        <h3>Seek Sequence:</h3>
+        <span id="seek-sequence"></span>
+      </div>
+    </div>
+
+    <div id="comparison-results" class="hidden">
+      <h2>Comparison Result</h2>
+      <div id="comparison-container"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
